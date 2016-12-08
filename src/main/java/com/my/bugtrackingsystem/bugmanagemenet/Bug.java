@@ -8,8 +8,7 @@ public class Bug
 	private String foundIn;
 	private String assignedTo;
 
-	//get set methods..
-	
+	//get set methods..	
 	public int getBugId()
 	{
 		return bugID;
