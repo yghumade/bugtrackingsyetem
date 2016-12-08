@@ -3,38 +3,35 @@ package com.my.bugtrackingsystem.utility;
 import java.io.*;
 import java.util.*;
 
-public class PropertyFileReader {
-	
+public class PropertyFileReader
+{
+
 	InputStream inputStream;
-	String result="";
-	
+	String result = "";
+
 	public String getPropertyvalues(String property)
 	{
 		try
 		{
 			Properties prop = new Properties();
-			//String propFileName = "config.properties";
+			// String propFileName = "config.properties";
 			inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
-			if(inputStream!=null)
+			if (inputStream != null)
 			{
 				prop.load(inputStream);
-				
-			}
-			else
+
+			} else
 			{
 				throw new FileNotFoundException("Property File  Not found");
 			}
-			
+
 			result = prop.getProperty(property);
-		}
-		catch(Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 
-		return  result;
+		return result;
 	}
-	
-	
 
 }

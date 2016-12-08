@@ -4,7 +4,8 @@ import java.sql.*;
 
 import com.my.bugtrackingsystem.utility.PropertyFileReader;
 
-public class JDBCConnection {
+public class JDBCConnection
+{
 
 	// defining driver name
 	public static String driverName = "com.mysql.jdbc.Driver";
@@ -17,7 +18,7 @@ public class JDBCConnection {
 	private String dbName = prreader.getPropertyvalues("Database_Name");
 	private String dbUser = prreader.getPropertyvalues("DBUser_Name");
 	private String dbPassword = prreader.getPropertyvalues("DBPassword");
-	
+
 	/**
 	 * 
 	 * @param dbName
@@ -25,28 +26,32 @@ public class JDBCConnection {
 	 * @param password
 	 * @return
 	 */
-	public Connection getConnection() {
+	public Connection getConnection()
+	{
 
 		// creating connection URL
 		String connectionUrl = url + dbName;
 
-		try {
+		try
+		{
 			// registers the specified driver class into memory
 			Class.forName(driverName);
 		}
 
-		catch (ClassNotFoundException e) {
+		catch (ClassNotFoundException e)
+		{
 			e.printStackTrace();
 		}
 
-		try {
+		try
+		{
 			// returns a connection object
 			con = DriverManager.getConnection(connectionUrl, dbUser, dbPassword);
-			
 
 		}
 
-		catch (SQLException e) {
+		catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
 
